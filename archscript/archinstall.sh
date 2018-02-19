@@ -12,7 +12,8 @@
 # Number should be adjusted before script runs (later passed as args)
 
 # Speeds up download of git
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 pacman -S git
-#parted commands follow
-#Put this in a text file and do parted < fillename
+parted < partcommands
