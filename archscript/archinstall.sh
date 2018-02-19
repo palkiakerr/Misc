@@ -14,6 +14,7 @@
 
 #parted commands follow
 #Put this in a text file and do parted < fillename
+command < echo <<EndOfMessage
 mklabel gpt
 unit mib
 mkpart primary 1 3
@@ -26,3 +27,4 @@ name 3 swap
 mkpart primary 643 -1
 name 4 rootfs
 set 2 boot on
+EndOfMessage
